@@ -1,9 +1,13 @@
 package com.frontend.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -16,11 +20,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.online.onlinebooksbackend.dao.SupplierDAO;
 import com.niit.online.onlinebooksbackend.model.Supplier;
+import com.niit.online.onlinebooksbackend.model.User;
 
 @Controller
 public class suppliercontroller {
 
-
+ 
+	@Autowired
+	User user;
+	
+	@Autowired
+	private JavaMailSender mailSender;
+	
     @Autowired
 	Supplier supplier;
 
@@ -44,7 +55,7 @@ public class suppliercontroller {
 	}
 	/*action of addsupplier*/
 	@RequestMapping(value = "/addSup", method = RequestMethod.POST)
-	public String addSupp(@ModelAttribute("supplier") Supplier su) {
+	public String addSupp(@ModelAttribute("supplier") Supplier su , HttpServletRequest request) {
 		if (su.getId() == 0) {
 			// new supplier, add it
 
@@ -56,6 +67,30 @@ public class suppliercontroller {
 			supplierDAO.update(su);
 			System.out.println("addsup update method of supplier in controller");
 		}
+		
+		HttpSession session=request.getSession(false);
+		String email1=(String)session.getAttribute("email");
+		
+		String usernaam=(String)session.getAttribute("loggedInUser");
+		
+		String recipientAddress=email1;
+		String subject="User Registration";
+		String message="User Registered successfully\n"+
+		"The Details ..r.."+"\n User Name:"+usernaam+"\n Phone no:"+user.getPhno();
+		
+		//prints on console
+		System.out.println("Too:"+recipientAddress);
+		System.out.println("Subject:"+subject);
+		System.out.println("Message:"+message);
+		
+		//creats a simple e-mail obj.
+		SimpleMailMessage email=new SimpleMailMessage();
+		email.setTo(recipientAddress);
+		email.setSubject(subject);
+		email.setText(message);
+		
+		//sends the e-mail
+		mailSender.send(email);			
 
 		return "redirect:/addSupplier";
 
@@ -64,7 +99,7 @@ public class suppliercontroller {
 
 	/* delete supplier... */
 	@RequestMapping(value = "/deletesupplier{id}")
-	public ModelAndView deleteproduct(@PathVariable("id") String id) throws Exception 
+	public ModelAndView deletesupplier(@PathVariable("id") String id) throws Exception 
 	{
 		System.out.println("deleting supplier");
 		int i=Integer.parseInt(id);
@@ -75,10 +110,6 @@ public class suppliercontroller {
 		System.out.println("delete Id:" + id);
 		return mv;
 	}
-
-	/*
-	 * /////////////////////////
-	 */
 
 	@RequestMapping(value = "/editsupplier{id}")
 	public ModelAndView UpdatesuppPage(@PathVariable("id") String id, Model model) throws Exception {

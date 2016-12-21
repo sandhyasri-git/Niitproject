@@ -159,6 +159,7 @@ public ModelAndView checkUser(HttpServletRequest request,HttpServletResponse res
 		int x=user.getId();
 		session.setAttribute("loggedInUser", user.getUsername());
     	session.setAttribute("loggedInUserID", x);
+    	session.setAttribute("email", user.getEmailid());
     	
 		session.setAttribute("LoggedIn", "true");
 		
