@@ -42,10 +42,10 @@ public class SupplierDAOImpl implements SupplierDAO {
 	public boolean delete(Supplier supplier) {
 		try {
 			Session s = sessionFactory.getCurrentSession();
-	    	Transaction tx = s.beginTransaction();
+	    	Transaction t = s.beginTransaction();
 			//sessionFactory.getCurrentSession().delete(supplier);
 	    	s.delete(supplier);
-	    	tx.commit();
+	    	t.commit();
 		return true;
 	} catch (HibernateException e) {
 		e.printStackTrace();
@@ -69,41 +69,43 @@ public class SupplierDAOImpl implements SupplierDAO {
 	}
 	
 	
-	@Transactional
-	public Supplier get(int id) {
-		/*Session s = sessionFactory.getCurrentSession();
-    	Transaction tx = s.beginTransaction();
-    	
-		String hql = "from Supplier where id=" +id ;
-		Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		@SuppressWarnings({ "unchecked", "deprecation" }) 
-		List<Supplier> list = query.list();
-		if(list == null)
-			return null;
-		else
-		{
-			//tx.commit();
-			
-			return list.get(0);
-		}*/
-		String hql = "from Supplier where id=" + id;
-        // hibernate query
-        Session s = sessionFactory.getCurrentSession();
-		Transaction t = s.beginTransaction();
-        Query query = s.createQuery(hql);
-        //Query query = sessionFactory.getCurrentSession().createQuery(hql);
-        List<Supplier> list = query.list();
-		 t.commit();
-		if (list == null) {
-			return null;
-			} else 
+	/*@Transactional
+		public Supplier get(int id) {*/
+			/*Session s = sessionFactory.getCurrentSession();
+	    	Transaction tx = s.beginTransaction();
+	    	
+			String hql = "from Supplier where id=" +id ;
+			Query query = sessionFactory.getCurrentSession().createQuery(hql);
+			@SuppressWarnings({ "unchecked", "deprecation" }) 
+			List<Supplier> list = query.list();
+			if(list == null)
+				return null;
+			else
 			{
-           System.out.println("geeeet supplier in impl");
-           return list.get(0);
-           }
-}
-	
+				//tx.commit();
+				
+				return list.get(0);
+			}*/
 			
+		
+		/*String hql = "from Supplier where id=" + id;
+	        // hibernate query
+	        Session s = sessionFactory.getCurrentSession();
+			//Transaction t = s.beginTransaction();
+	        Query query = s.createQuery(hql);
+	        //Query query = sessionFactory.getCurrentSession().createQuery(hql);
+	        List<Supplier>list = query.list();
+			 //t.commit();
+			if (list == null) {
+				return null;
+				} else 
+				{
+	           System.out.println("geeeet supplier in impl");
+	           return list.get(0);
+	           }
+	}*/
+		
+		
 		
 		
 	
@@ -136,7 +138,7 @@ public class SupplierDAOImpl implements SupplierDAO {
 		
 	}
 	
-
+	@Transactional
 	public Supplier getByName(String name) {
 		String hql = "from Supplier where name" + "'" + name + "'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
@@ -146,4 +148,17 @@ public class SupplierDAOImpl implements SupplierDAO {
 		}
 		return null;
 }
+	@Transactional
+	public Supplier get(int id) {
+		{
+			// TODO Auto-generated method stub
+	        String hql = "from Supplier where id= " + " ' " + id + " ' ";  //category is d domain object name not table name
+			Query query = sessionFactory.getCurrentSession().createQuery(hql);
+			List <Supplier> list = query.list();
+			return null;
+		}
 	}
+	
+	}
+	
+	
