@@ -28,9 +28,10 @@ Welcome to the eBooks-Library - Now in our 13th year, we
 
 #Technologies 
  Hibernate-5
- Spring
+ Spring-4
  Bootrap
  CSS
+ JDK - to download JDK 1.8 click here <a href = "http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html">
  
  #Build Tool 
  Ellipse 
@@ -38,11 +39,13 @@ Welcome to the eBooks-Library - Now in our 13th year, we
  Quick start(Back end)
  
  #Server
- Tomcat server - 8
+ Tomcat server - To download click here <a href ="https://tomcat.apache.org/download-80.cgi"
+ Tomcat 
+ 
+ #DataBase
+ H2
 
- 
- 
- ![antique-books-wallpaper-2-www wallhd4 com](https://cloud.githubusercontent.com/assets/23026244/21764032/01892b36-d687-11e6-91dd-8ac03c3e4648.jpeg)
+![antique-books-wallpaper-2-www wallhd4 com](https://cloud.githubusercontent.com/assets/23026244/21764032/01892b36-d687-11e6-91dd-8ac03c3e4648.jpeg)
  
  
 
