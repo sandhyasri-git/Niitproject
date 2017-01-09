@@ -66,10 +66,10 @@ public class ApplicationContextConfig {
 	 
 	 sessionBuilder.addAnnotatedClasses(Category.class);
 	 sessionBuilder.addAnnotatedClasses(Supplier.class);
-	  sessionBuilder.addAnnotatedClasses(Product.class);
+	 sessionBuilder.addAnnotatedClasses(Product.class);
 	   
 	  sessionBuilder.addAnnotatedClasses(Cart.class);
-	  // sessionBuilder.addAnnotatedClasses(CartItem.class);
+	  //sessionBuilder.addAnnotatedClasses(CartItem.class);
 	  // sessionBuilder.addAnnotatedClasses(Customer.class);
 	   
 	   

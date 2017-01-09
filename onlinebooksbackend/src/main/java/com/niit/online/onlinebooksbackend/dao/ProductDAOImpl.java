@@ -32,6 +32,7 @@ public class ProductDAOImpl implements ProductDAO {
 		// TODO Auto-generated constructor stub
 	}
 	
+	@Transactional
 	public boolean update(Product product) {
 		try{
 			  sessionfactory.getCurrentSession().update(product);
@@ -41,7 +42,6 @@ public class ProductDAOImpl implements ProductDAO {
 		e.printStackTrace(); 
 		return false; 
 		} 
-		
 	}
 
 
