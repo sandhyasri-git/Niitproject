@@ -15,7 +15,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 .navbar{
-background-color: lightblue;
+background-color: black;
 }
 </style>
 </head>
@@ -35,6 +35,7 @@ background-color: lightblue;
 			<ul class="nav navbar-nav">
 				<li><a href="aboutus">aboutus</a></li>
 				<li><a href="product">products</a></li>
+				<li><a href="product">products1</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<!-- <li><a href="login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>

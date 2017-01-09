@@ -87,6 +87,12 @@ public String showpro()
 	return "product";
 }
 
+@RequestMapping("/product1")
+public String showpro1()
+{
+	return "product1";
+}
+
 //------homepage mapping------//
 @RequestMapping("/home")
 public String showh1()
@@ -99,6 +105,12 @@ public String showh1()
 public String show()
 {
 	return "login";
+}
+
+@RequestMapping("/Cart")
+public String Cart1()
+{
+	return "Cart";
 }
 
 //-------Two methods for loginpage pro,sup,cat-------//

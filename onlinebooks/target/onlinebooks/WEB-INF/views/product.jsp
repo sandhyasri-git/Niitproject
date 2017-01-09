@@ -129,7 +129,7 @@ body{background: url('resources/images/pro.jpg') no-repeat center center fixed;
      <!--  <td><a href="Deleteproduct&{{p1.id}}">Delete</a></td>
         <td><a href="Updateprod&{{p1.id}}">Edit</a></td>   -->
  
- <td><a href="viewdetail?id={{p1.productid}}">view</a>  	
+ <!-- <td><a href="viewdetail?id={{p1.productid}}">view</a>  	 -->
       </tr>
     </tbody>
     </table>

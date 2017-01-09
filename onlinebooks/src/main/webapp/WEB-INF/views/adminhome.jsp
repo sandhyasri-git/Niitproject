@@ -13,7 +13,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
 .navbar{
-background-color:Red;
+background-color:/* Daring Spain */Ruby;
 }
 </style>
 </head>
@@ -37,19 +37,19 @@ Welcome ${loggedInUser}
         
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categorys<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Update Categorys</a></li>
-          <li><a href="#">Delete Categorys</a></li>
-          <li><a href="addCategory">Add Categorys</a></li>
-           <li><a href="#">View Categorys</a></li>
+         <!--  //<li><a href="#">Update Categorys</a></li>
+          //<li><a href="#">Delete Categorys</a></li>
+ -->          <li><a href="addCategory">Add Categorys</a></li>
+           <!-- <li><a href="#">View Categorys</a></li> -->
         </ul>
         </li>
       
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Supplier<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="addSupplier"></span>Add Supplier</a></li>
-          <li><a href="#">Update Supplier</a></li>
+          <!-- <li><a href="#">Update Supplier</a></li>
           <li><a href="#">Delete Supplier</a></li>
-          <li><a href="#">View Supplier</a></li></ul>
+          <li><a href="#">View Supplier</a></li></ul> -->
         
       
        <!--  <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li> -->

@@ -1,10 +1,15 @@
-<%@include file="header.jsp" %>
+<%@include file="adminheader.jsp" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
  
 <html>
 <head>
     <title>Spring MVC Form Handling</title>
+      <style>
+body{background: url('resources/images/addsup.jpg') no-repeat center center fixed;
+     background-size: cover;
+}
+</style>
 </head>
 
 <body>
@@ -36,20 +41,39 @@
 			<tr>
 				<td colspan="2"><c:if test="${!empty supplier.name}">
 						<input type="submit" value="Edit supplier" />
-					</c:if> <c:if test="${empty supplier.name}">
+				 	</c:if></td> 
+				 	<td><c:if test="${empty supplier.name}">
 						<input type="submit" value="Add supplier" />
 					</c:if></td>
 			</tr>
 		</table>
 	</form:form>
 	<br>
-	<h3>Suppliers List</h3>
+	<h3>Suppliers List</h3> <style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+	
+	
 	<c:if test="${!empty supplierList}">
 		<table class="tg">
 			<tr>
-				<th>supplier ID</th>
-				<th width="120">supplier Name</th>
-				<th width="120">supplier Address</th>
+				<center><th>Supplier ID</th></center>
+				<th width="120">Supplier Name</th>
+				<th width="120">Supplier Address</th>
 				<th width="60">Edit</th>
 				<th width="60">Delete</th>
 			</tr>

@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 //import javax.validation.Valid;
 import javax.validation.Valid;
 
@@ -115,7 +116,7 @@ public class products {
 		System.out.println("myproduct controller called");
 		MultipartFile image = product.getImage();
 		Path path;// belong to nio package
-		path = Paths.get("E:/Project1/onlinebooks/src/main/webapp/resources/images/" + product.getProdname() + ".jpg");
+		path = Paths.get("C:/Users/Devender/git/Niitproject/onlinebooks/src/main/webapp/resources/images/" + product.getProdname() + ".jpg");
 		System.out.println("Path=" + path);
 		System.out.println("File name" + product.getImage().getOriginalFilename());
 		if (image != null && !image.isEmpty()) {
@@ -183,7 +184,7 @@ public class products {
 	@Autowired
 	CategoryDAO categoryDAO;
 	
-	@RequestMapping("/addCategory")
+	/*@RequestMapping("/addCategory")
 	public ModelAndView showCategory(@ModelAttribute("category")Category category,BindingResult result,HttpServletRequest request)
 	{
 		ModelAndView mv=new ModelAndView("addCategory");
@@ -199,7 +200,7 @@ public class products {
 		categoryDAO.saveOrUpdate(category);
 		return "login";
 	}
-
+*/
 	
 	/*@RequestMapping("/addCategory")
 	public ModelAndView showAddCategory(@Valid @ModelAttribute("category") Category c1, BindingResult result,
@@ -228,13 +229,13 @@ public ModelAndView deleteproduct(@PathVariable("id") String id) throws Exceptio
 /*@RequestMapping("/updateproduct")
 public String show5() {
 	return "updateproduct";
-}
+}*/
 
-@RequestMapping("updateproduct&{id}")
-public String updateproduct(@PathVariable("id") String id,@ModelAttribute("product") Product product,BindingResult result, Model model) {
+@RequestMapping("/updateproduct&{id}")
+public String updateproduct(@PathVariable("id") int id,@ModelAttribute("product") Product product,BindingResult result, Model model) {
 			//log.debug("Starting");
-	       int i=Integer.parseInt(id);
-			product = productDAO.get(i);
+	       //int i=Integer.parseInt(id);
+			product = productDAO.get(id);
 			
 	if (product != null) {
 		//productDAO.saveOrUpdate(category);
@@ -244,11 +245,8 @@ public String updateproduct(@PathVariable("id") String id,@ModelAttribute("produ
 	}
 	//log.debug("Ending");
 	return "manageproduct";
-}*/
 }
-
-
-
+}
 
 
 
